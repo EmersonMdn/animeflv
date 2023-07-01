@@ -47,7 +47,6 @@ body {
 
 .header__menu-menu {
   font-weight: 500;
-  margin-right: 0.5rem;
 }
 
 .header__menu-wrapper i {
@@ -58,3 +57,4 @@ body {
   color: #fff;
   cursor: pointer;
 }
+

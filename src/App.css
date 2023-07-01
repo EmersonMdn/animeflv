@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+/* -----------------ANIMES CARD ------------------------*/
+
+.animes_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-items: center;
+  margin: 3rem 1rem;
+}
+.animes__card {
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.animes__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.animes__card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: 0.9s;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.animes__card:hover .animes__card-overlay {
+  opacity: 1;
+}
+.animes__card-text {
   color: white;
+  font-size: 18px;
+  text-align: center;
+}
+.animes__card-btn {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--red-color);
+  border: none;
+  color: var(--body-color);
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 1.25rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/*---------------------------- BREAKPOINTS------------------------ */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 568px) {
+  .animes_container {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (min-width: 890px) {
+  .animes_container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 1168px) {
+  .animes_container {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
