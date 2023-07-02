@@ -2,27 +2,27 @@ import { useEffect, useState } from "react";
 import ItemCard from "./ItemCard/ItemCard";
 
 const AnimesContainer = () => {
-  const url = "https://animes5.p.rapidapi.com/?limit=30";
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "be2db38526msh77d08457b87faf4p1bc1a7jsnf4fe45d0237d",
-      "X-RapidAPI-Host": "animes5.p.rapidapi.com",
-    },
-  };
+  // 1c790537dc1197bee2d55d2a8c9e0282         PUBLIC KEY
+  // 14c433f1dca1815d5506fef1fcb6ce858158b835         PRIVATE KEY
+
+  const ts = "2/7/2023, 17:32:38";
+  const apikey = "1c790537dc1197bee2d55d2a8c9e0282";
+  const hash = "d9bcd17d145c479a3c03c3645ccad9ef";
+
+  const url = `http://gateway.marvel.com/v1/public/comics?apikey=${apikey}&ts=${ts}&hash=${hash}`;
 
   const [animes, setAnimes] = useState([]);
 
   const getData = async () => {
-    const response = await fetch(url, options);
+    const response = await fetch(url);
     const result = await response.json();
-    console.log(result.nextPage);
-    return result.animes;
+    console.log(result.data.results);
+    return result.data;
   };
 
   useEffect(() => {
     getData().then((data) => {
-      setAnimes(data);
+      setAnimes(data.results);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

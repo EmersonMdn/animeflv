@@ -2,19 +2,24 @@
 
 .animes_container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  row-gap: 1rem;
   justify-items: center;
   margin: 3rem 1rem;
 }
 .animes__card {
   position: relative;
+  width: 22rem;
+  padding: 0.5rem;
+  border: 2px rgba(0, 0, 0, 0.1) solid;
+  border-radius: 15px;
 }
 
 .animes__card-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 31rem;
+  object-fit: contain;
+  border-radius: 15px;
 }
 
 .animes__card-overlay {
@@ -54,18 +59,25 @@
 /*---------------------------- BREAKPOINTS------------------------ */
 
 @media screen and (min-width: 568px) {
-  .animes_container {
-    grid-template-columns: repeat(3, 1fr);
+  .animes__card-img {
+    width: 100%;
+    max-width: 20rem;
+    height: 21rem;
+  }
+  .animes__card {
+    /* width: 15rem; */
   }
 }
 
-@media screen and (min-width: 890px) {
-  .animes_container {
-    grid-template-columns: repeat(4, 1fr);
+@media screen and (min-width: 1168px) {
+  .animes__card-img {
+    width: 100%;
+    height: 19rem;
+  }
+  .animes__card {
+    /* width: 19rem; */
   }
 }
-@media screen and (min-width: 1168px) {
-  .animes_container {
-    grid-template-columns: repeat(5, 1fr);
-  }
+
+@media screen and (min-width: 1600px) {
 }

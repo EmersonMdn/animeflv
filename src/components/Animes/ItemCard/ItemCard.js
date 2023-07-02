@@ -22,9 +22,11 @@ const ItemCard = ({ items }) => {
           >
             <img
               className="animes__card-img"
-              src={e.main_picture.medium}
+              src={`${e.thumbnail.path}.${e.thumbnail.extension}`}
               alt=""
             />
+            
+            <p>{e.title}</p>
 
             {isHovered && (
               <div className="animes__card-overlay">
