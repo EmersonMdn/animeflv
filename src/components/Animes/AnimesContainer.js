@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import ItemCard from "./ItemCard/ItemCard";
+import { Comics } from "../../context/MarvelContex";
 
 const AnimesContainer = () => {
-  // 1c790537dc1197bee2d55d2a8c9e0282         PUBLIC KEY
-  // 14c433f1dca1815d5506fef1fcb6ce858158b835         PRIVATE KEY
+  const ts = process.env.REACT_APP_TS_VALUE;
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const hash = process.env.REACT_APP_HASH_KEY;
 
-  const ts = "2/7/2023, 17:32:38";
-  const apikey = "1c790537dc1197bee2d55d2a8c9e0282";
-  const hash = "d9bcd17d145c479a3c03c3645ccad9ef";
+  const url = `http://gateway.marvel.com/v1/public/comics?apikey=${apiKey}&ts=${ts}&hash=${hash}`;
 
-  const url = `http://gateway.marvel.com/v1/public/comics?apikey=${apikey}&ts=${ts}&hash=${hash}`;
-
-  const [animes, setAnimes] = useState([]);
+  const { comics, setComics } = useContext(Comics);
 
   const getData = async () => {
     const response = await fetch(url);
@@ -22,15 +20,18 @@ const AnimesContainer = () => {
 
   useEffect(() => {
     getData().then((data) => {
-      setAnimes(data.results);
+      setComics(data.results);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <section id="animes_container" className="animes_container">
-      <ItemCard items={animes} />
-    </section>
+    <>
+      <section id="animes_container" className="animes_container">
+        <h1 className="section__title">Comics</h1>
+        <ItemCard items={comics} />
+      </section>
+    </>
   );
 };
 
