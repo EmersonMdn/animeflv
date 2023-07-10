@@ -11,11 +11,11 @@
   position: relative;
   width: 22rem;
   padding: 0.3rem;
+  text-align: center;
 }
 
 .animes__card-img {
-  width: 100%;
-  height: 31rem;
+  text-align: center;
   object-fit: contain;
   /* border-radius: 15px; */
 }

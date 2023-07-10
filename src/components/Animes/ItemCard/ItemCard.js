@@ -1,54 +1,77 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
 
-const ItemCard = ({ items }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const navegate = useNavigate();
+const ItemCard = ({ animes }) => {
+  // const [isHovered, setIsHovered] = useState(false);
+  //  const navegate = useNavigate();
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+  // const handleMouseEnter = () => {
+  //   console.log("dentro");
+  //   setIsHovered(true);
+  // };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+  // const handleMouseLeave = () => {
+  //   console.log("fuera");
+  //   setIsHovered(false);
+  // };
 
-  const handleDetail = (id) => {
-    navegate(`/${id}`);
-  };
+  // const handleDetail = (id) => {
+  //   navegate(`/${id}`);
+  // };
 
   return (
     <>
-      {items.map((e) => {
-        return (
-          <div
-            key={e.id}
-            className="animes__card"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img
-              className="animes__card-img"
-              src={`${e.thumbnail.path}.${e.thumbnail.extension}`}
-              alt=""
-            />
+      <Splide
+        options={{
+          perPage: 5,
+          rewind: true,
+          gap: "1rem",
+          height: "19.7rem",
+          width: "70rem ",
 
-            <p>{e.title}</p>
-
-            {isHovered && (
-              <div className="animes__card-overlay">
-                <p className="animes__card-text">{e.title}</p>
-                <button
-                  className="animes__card-btn"
-                  onClick={() => handleDetail(e.id)}
-                >
-                  Ver mas
-                </button>
-              </div>
-            )}
-          </div>
-        );
-      })}
+          breakpoints: {
+            1200: {
+              perPage: 4,
+              width: "100%",
+              height: "19rem",
+            },
+            840: {
+              perPage: 3,
+              width: "100%",
+              height: "19rem",
+            },
+            640: {
+              perPage: 2,
+              width: "100%",
+              height: "19rem",
+            },
+            440: {
+              perPage: 1,
+              focus: "true",
+              height: "20rem",
+            },
+          },
+        }}
+        hasTrack={false}
+        aria-label="My Favorite Images"
+      >
+        <SplideTrack>
+          {animes.map((e) => (
+            <>
+              <SplideSlide key={e._id}>
+                <img src={e.image} alt={e._id} />
+                {/* {isHovered && (
+                  <div className="animes__card-overlay">
+                    <p className="animes__card-text">{e.title}</p>
+                    <button className="animes__card-btn">Ver mas</button>
+                  </div>
+                )} */}
+              </SplideSlide>
+            </>
+          ))}
+        </SplideTrack>
+      </Splide>
     </>
   );
 };

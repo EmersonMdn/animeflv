@@ -1,35 +1,40 @@
-import { useContext, useEffect } from "react";
+// import { useContext, useEffect } from "react";
 import ItemCard from "./ItemCard/ItemCard";
-import { Comics } from "../../context/MarvelContex";
+// import { Comics } from "../../context/MarvelContex";
+
+import { useEffect, useState } from "react";
 
 const AnimesContainer = () => {
-  const ts = process.env.REACT_APP_TS_VALUE;
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const hash = process.env.REACT_APP_HASH_KEY;
+  // const url =
+  //   "https://anime-db.p.rapidapi.com/anime?page=1&size=10&sortBy=ranking&sortOrder=asc";
+  // const options = {
+  //   method: "GET",
+  //   headers: {
+  //     "X-RapidAPI-Key": "be2db38526msh77d08457b87faf4p1bc1a7jsnf4fe45d0237d",
+  //     "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
+  //   },
+  // };
 
-  const url = `http://gateway.marvel.com/v1/public/comics?apikey=${apiKey}&ts=${ts}&hash=${hash}`;
+  const [animes, setAnimes] = useState([]);
 
-  const { comics, setComics } = useContext(Comics);
-
-  const getData = async () => {
-    const response = await fetch(url);
-    const result = await response.json();
-    console.log(result.data.results);
-    return result.data;
+  const getAnimes = async () => {
+    const response = await fetch("./data.json");
+    const data = await response.json();
+    return data;
   };
 
   useEffect(() => {
-    getData().then((data) => {
-      setComics(data.results);
+    getAnimes().then((data) => {
+      setAnimes(data);
+      console.log(data);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <section id="animes_container" className="animes_container">
-        <h1 className="section__title">Comics</h1>
-        <ItemCard items={comics} />
+        <h1 className="section__title">Most watcheds</h1>
+        <ItemCard animes={animes} />
       </section>
     </>
   );
