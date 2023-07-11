@@ -27,7 +27,7 @@ const ItemCard = ({ animes }) => {
           perPage: 5,
           rewind: true,
           gap: "1rem",
-          height: "19.7rem",
+          autoHeigh: "true",
           width: "70rem ",
 
           breakpoints: {
@@ -44,16 +44,13 @@ const ItemCard = ({ animes }) => {
             640: {
               perPage: 2,
             },
+
             450: {
               perPage: 1,
-              width: "15rem",
-              gap: "1rem",
-              autoHeight: true,
-            },
-            286: {
-              perPage: 1,
-              height: "16rem",
-              autoWidth: true,
+              height: "22rem",
+              lazyLoad: "nearby",
+              focus: "center",
+              rewind: true,
             },
           },
         }}
@@ -64,6 +61,7 @@ const ItemCard = ({ animes }) => {
           {animes.map((e) => (
             <SplideSlide key={e._id}>
               <img src={e.image} alt={e._id} />
+              <p>{e.title}</p>
               {/* {isHovered && (
                   <div className="animes__card-overlay">
                     <p className="animes__card-text">{e.title}</p>

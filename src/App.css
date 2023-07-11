@@ -60,6 +60,15 @@
   text-align: center;
 }
 
+.splide__slide {
+  text-align: center;
+}
+
+.splide__slide img {
+  height: 17.6rem;
+  cursor: pointer;
+}
+
 /*---------------------------- BREAKPOINTS------------------------ */
 
 /* @media screen and (min-width: 568px) {
