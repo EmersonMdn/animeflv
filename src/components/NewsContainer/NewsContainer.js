@@ -43,8 +43,8 @@ const NewsContainer = () => {
     <div className="app">
       <h1 className="app__title">Anime News</h1>
       <div className="app__news">
-        {news.map((article, index) => (
-          <div className="article" key={index}>
+        {news.map((article) => (
+          <div className="article" key={article.publishedAt}>
             <h3 className="article__title">{article.title}</h3>
             <p className="article__description">{article.description}</p>
             <img
