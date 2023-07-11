@@ -43,25 +43,26 @@ const NewsContainer = () => {
     <div className="app">
       <h1 className="app__title">Anime News</h1>
       <div className="app__news">
-        {news.map((article) => (
-          <div className="article" key={article.publishedAt}>
-            <h3 className="article__title">{article.title}</h3>
-            <p className="article__description">{article.description}</p>
-            <img
-              className="article__image"
-              src={article.urlToImage}
-              alt="Article thumbnail"
-            />
-            <a
-              className="article__link"
-              href={article.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read More
-            </a>
-          </div>
-        ))}
+        {news &&
+          news.map((article) => (
+            <div className="article" key={article.publishedAt}>
+              <h3 className="article__title">{article.title}</h3>
+              <p className="article__description">{article.description}</p>
+              <img
+                className="article__image"
+                src={article.urlToImage}
+                alt="Article thumbnail"
+              />
+              <a
+                className="article__link"
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read More
+              </a>
+            </div>
+          ))}
       </div>
       <div className="pagination">
         <button onClick={handlePreviousPage} disabled={currentPage === 1}>
