@@ -1,4 +1,6 @@
 // import { useContext, useEffect } from "react";
+import AnimeReleaseCalendar from "../AnimeReleaseCalendar/AnimeReleaseCalendar";
+import NewsContainer from "../NewsContainer/NewsContainer";
 import ItemCard from "./ItemCard/ItemCard";
 // import { Comics } from "../../context/MarvelContex";
 
@@ -26,7 +28,6 @@ const AnimesContainer = () => {
   useEffect(() => {
     getAnimes().then((data) => {
       setAnimes(data);
-      console.log(data);
     });
   }, []);
 
@@ -35,6 +36,14 @@ const AnimesContainer = () => {
       <section id="animes_container" className="animes_container">
         <h1 className="section__title">Most watcheds</h1>
         <ItemCard animes={animes} />
+      </section>
+
+      <section>
+        <AnimeReleaseCalendar />
+      </section>
+
+      <section>
+        <NewsContainer />
       </section>
     </>
   );
