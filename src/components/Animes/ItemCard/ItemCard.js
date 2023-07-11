@@ -43,13 +43,17 @@ const ItemCard = ({ animes }) => {
             },
             640: {
               perPage: 2,
-              width: "100%",
-              height: "19rem",
             },
-            440: {
+            450: {
               perPage: 1,
-              focus: "true",
-              height: "20rem",
+              width: "15rem",
+              gap: "1rem",
+              autoHeight: true,
+            },
+            286: {
+              perPage: 1,
+              height: "16rem",
+              autoWidth: true,
             },
           },
         }}
@@ -58,17 +62,15 @@ const ItemCard = ({ animes }) => {
       >
         <SplideTrack>
           {animes.map((e) => (
-            <>
-              <SplideSlide key={e._id}>
-                <img src={e.image} alt={e._id} />
-                {/* {isHovered && (
+            <SplideSlide key={e._id}>
+              <img src={e.image} alt={e._id} />
+              {/* {isHovered && (
                   <div className="animes__card-overlay">
                     <p className="animes__card-text">{e.title}</p>
                     <button className="animes__card-btn">Ver mas</button>
                   </div>
                 )} */}
-              </SplideSlide>
-            </>
+            </SplideSlide>
           ))}
         </SplideTrack>
       </Splide>
