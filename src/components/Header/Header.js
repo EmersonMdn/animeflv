@@ -1,18 +1,54 @@
-import React from "react";
+import "./Header.css";
+import React, { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const navigationItems = [
+    { name: "Inicio", path: "/" },
+    { name: "Series", path: "/series" },
+    { name: "Películas", path: "/peliculas" },
+    // Agrega más elementos de navegación según tus necesidades
+  ];
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <>
       <header id="header" className="header">
-        <div className="header__title">
-          <p>animeflv</p>
-        </div>
+        <nav className="navbar">
+          <div className="navbar__title">Mi Aplicación</div>
+          <div className="navbar__menu" onClick={toggleSidebar}>
+            {sidebarOpen ? <FaTimes /> : <FaBars />}
+          </div>
+        </nav>
 
-        <div className="header__menu">
-          <span className="header__menu-menu">MENU</span>
-          <span className="header__menu-wrapper">
-            <i className="bx bx-menu"></i>
-          </span>
+        <div className={`sidebar ${sidebarOpen ? "sidebar--open" : ""}`}>
+          <div className="sidebar__header">
+            <div className="sidebar__title">Navegación</div>
+            <div className="sidebar__close" onClick={toggleSidebar}>
+              <FaTimes />
+            </div>
+          </div>
+          <ul className="sidebar__list">
+            {navigationItems.map((item, index) => (
+              <li
+                key={index}
+                className="sidebar__list-item"
+                onClick={() => handleNavigation(item.path)}
+              >
+                {item.name}
+              </li>
+            ))}
+          </ul>
         </div>
       </header>
     </>

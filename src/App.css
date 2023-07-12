@@ -1,26 +1,23 @@
 /* -----------------ANIMES CARD ------------------------*/
 
 .animes_container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 1rem;
-  margin: 3rem 1rem;
 }
-.animes__card {
+
+/* .animes__card {
   position: relative;
   width: 22rem;
   padding: 0.3rem;
   text-align: center;
-}
+} */
 
-.animes__card-img {
+/* .animes__card-img {
   text-align: center;
   object-fit: contain;
-  /* border-radius: 15px; */
-}
+  border-radius: 15px;
+} */
 
-.animes__card-overlay {
+/* .animes__card-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -32,17 +29,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.animes__card:hover .animes__card-overlay {
+/* .animes__card:hover .animes__card-overlay {
   opacity: 1;
-}
-.animes__card-text {
+} */
+/* .animes__card-text {
   color: white;
   font-size: 18px;
   text-align: center;
-}
-.animes__card-btn {
+} */
+/* .animes__card-btn {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -52,7 +49,7 @@
   padding: 10px 0;
   cursor: pointer;
   font-size: 1.25rem;
-}
+} */
 
 .section__title {
   width: 100%;

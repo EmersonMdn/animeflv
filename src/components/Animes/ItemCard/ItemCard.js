@@ -1,76 +1,50 @@
-// import { useNavigate } from "react-router-dom";
-import { Splide, SplideTrack, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
+import { useState } from "react";
 
 const ItemCard = ({ animes }) => {
-  // const [isHovered, setIsHovered] = useState(false);
-  //  const navegate = useNavigate();
+  const carouselOptions = {
+    type: "slide",
+    perPage: 5,
+    gap: "1rem",
+    focus: "center",
+    breakpoints: {
+      576: {
+        perPage: 1,
+      },
+      768: {
+        perPage: 2,
+      },
+      992: {
+        perPage: 3,
+      },
+      1200: {
+        perPage: 4,
+      },
+    },
+  };
 
-  // const handleMouseEnter = () => {
-  //   console.log("dentro");
-  //   setIsHovered(true);
+  // const [hoveredItem, setHoveredItem] = useState(null);
+
+  // const handleMouseEnter = (index) => {
+  //   setHoveredItem(index);
   // };
 
   // const handleMouseLeave = () => {
-  //   console.log("fuera");
-  //   setIsHovered(false);
-  // };
-
-  // const handleDetail = (id) => {
-  //   navegate(`/${id}`);
+  //   setHoveredItem(null);
   // };
 
   return (
     <>
-      <Splide
-        options={{
-          perPage: 5,
-          rewind: true,
-          gap: "1rem",
-          autoHeigh: "true",
-          width: "70rem ",
-
-          breakpoints: {
-            1200: {
-              perPage: 4,
-              width: "100%",
-              height: "19rem",
-            },
-            840: {
-              perPage: 3,
-              width: "100%",
-              height: "19rem",
-            },
-            640: {
-              perPage: 2,
-            },
-
-            450: {
-              perPage: 1,
-              height: "22rem",
-              lazyLoad: "nearby",
-              focus: "center",
-              rewind: true,
-            },
-          },
-        }}
-        hasTrack={false}
-        aria-label="My Favorite Images"
-      >
-        <SplideTrack>
-          {animes.map((e) => (
-            <SplideSlide key={e._id}>
-              <img src={e.image} alt={e._id} />
-              <p>{e.title}</p>
-              {/* {isHovered && (
-                  <div className="animes__card-overlay">
-                    <p className="animes__card-text">{e.title}</p>
-                    <button className="animes__card-btn">Ver mas</button>
-                  </div>
-                )} */}
-            </SplideSlide>
-          ))}
-        </SplideTrack>
+      <Splide options={carouselOptions}>
+        {animes.map((item, index) => (
+          <SplideSlide key={index}>
+            <div className="carousel-item">
+              <img src={item.image} alt={`Foto ${item.title}`} />
+              <p>{item.title}</p>
+            </div>
+          </SplideSlide>
+        ))}
       </Splide>
     </>
   );
