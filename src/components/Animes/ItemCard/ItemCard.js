@@ -1,6 +1,6 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { useState } from "react";
+// import { useState } from "react";
 
 const ItemCard = ({ animes }) => {
   const carouselOptions = {
