@@ -1,11 +1,12 @@
 import "./Header.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   const navigationItems = [
     { name: "Inicio", path: "/" },
@@ -14,11 +15,25 @@ const Header = () => {
     // Agrega más elementos de navegación según tus necesidades
   ];
 
+  const navigate = useNavigate();
+
   const handleNavigation = (path) => {
     navigate(path);
   };
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
+  };
+
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    console.log("Realizando búsqueda:", searchQuery);
+  };
+
+  const toggleSearchVisibility = () => {
+    setIsSearchVisible(!isSearchVisible);
   };
 
   return (
@@ -38,12 +53,37 @@ const Header = () => {
               <FaTimes />
             </div>
           </div>
+
+          <div className={`search-bar ${isSearchVisible ? "visible" : ""}`}>
+            <input
+              type="text"
+              placeholder="Buscar"
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+            />
+            <button type="button" onClick={handleSearch}>
+              <i className="fas fa-search"></i>
+            </button>
+            <button
+              type="button"
+              className="toggle-search"
+              onClick={toggleSearchVisibility}
+            >
+              <i
+                className={`fas ${isSearchVisible ? "fa-times" : "fa-search"}`}
+              ></i>
+            </button>
+          </div>
+
           <ul className="sidebar__list">
             {navigationItems.map((item, index) => (
               <li
                 key={index}
                 className="sidebar__list-item"
-                onClick={() => handleNavigation(item.path)}
+                onClick={() => {
+                  handleNavigation(item.path);
+                  toggleSidebar();
+                }}
               >
                 {item.name}
               </li>

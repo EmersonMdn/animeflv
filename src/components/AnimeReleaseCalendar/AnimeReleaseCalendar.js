@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import moment from "moment";
+
 import "./AnimeReleaseCalendar.css";
 
 const AnimeReleaseCalendar = () => {
@@ -22,7 +24,7 @@ const AnimeReleaseCalendar = () => {
 
   return (
     <div className="upcoming-releases">
-      <h2 className="upcoming-releases__title">Upcoming Releases</h2>
+      <h2 className="upcoming-releases__title">Novedades</h2>
       <div className="release-grid">
         {releases.map((release, index) => (
           <div className="release-card" key={index}>
@@ -33,13 +35,29 @@ const AnimeReleaseCalendar = () => {
             />
             <div className="release-card__content">
               <h3 className="release-card__title">{release.title}</h3>
-              <p className="release-card__synopsis">{release.synopsis}</p>
-              <p className="release-card__episodes">
-                Episodes: {release.episodes}
-              </p>
-              <p className="release-card__date">
-                Release Date: {release.aired.from}
-              </p>
+              {release.synopsis && (
+                <div className="realease-card_synopsis-container">
+                  <p className={`release-card__synopsis `}>
+                    {release.synopsis}
+                  </p>
+                </div>
+              )}
+              <button className="release-card__btn button-see-more">
+                Ver mas
+              </button>
+
+              {release.episodes && (
+                <p className="release-card__episodes">
+                  Episodes: {release.episodes}
+                </p>
+              )}
+
+              {release.aired.from && (
+                <p className="release-card__date">
+                  Release Date:{" "}
+                  {moment(release.aired.from).format("DD-MM-YYYY")}
+                </p>
+              )}
             </div>
           </div>
         ))}

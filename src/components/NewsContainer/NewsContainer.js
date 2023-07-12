@@ -41,7 +41,7 @@ const NewsContainer = () => {
 
   return (
     <div className="app">
-      <h1 className="app__title">Anime News</h1>
+      {news && <h1 className="app__title">Anime News</h1>}
       <div className="app__news">
         {news &&
           news.map((article) => (
@@ -64,6 +64,7 @@ const NewsContainer = () => {
             </div>
           ))}
       </div>
+
       <div className="pagination">
         <button onClick={handlePreviousPage} disabled={currentPage === 1}>
           Previous

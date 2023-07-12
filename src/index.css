@@ -27,6 +27,10 @@ font-family: 'Rubik', sans-serif;
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
 body {
   background-color: var(--body-color);
   font-family: "Poppins", sans-serif;
