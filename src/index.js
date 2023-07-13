@@ -2,13 +2,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import ComicsProvider from "./context/MarvelContex";
+import ContextProvider from "./context/Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ComicsProvider>
+  <ContextProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </ComicsProvider>
+  </ContextProvider>
 );

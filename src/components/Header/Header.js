@@ -1,5 +1,5 @@
 import "./Header.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navigationItems = [
     { name: "Inicio", path: "/" },
@@ -17,6 +18,26 @@ const Header = () => {
 
   const navigate = useNavigate();
 
+  // SCROLL
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+
+      if (scrollTop > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  //? SIDE BAR
   const handleNavigation = (path) => {
     navigate(path);
   };
@@ -39,8 +60,12 @@ const Header = () => {
   return (
     <>
       <header id="header" className="header">
-        <nav className="navbar">
-          <div className="navbar__title">Mi Aplicación</div>
+        <nav className={scrolled ? "navbar scrolled" : "navbar"}>
+          <div class="navbar__title-logo">
+            <span class="logo-text">
+              aNi<span class="logo-red">M</span>
+            </span>
+          </div>
           <div className="navbar__menu" onClick={toggleSidebar}>
             {sidebarOpen ? <FaTimes /> : <FaBars />}
           </div>

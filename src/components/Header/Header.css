@@ -14,10 +14,49 @@
   background: linear-gradient(to right, var(--red-color), var(--red-sec-color));
   padding: 10px 20px;
   color: #fff;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  z-index: 20;
 }
 
-.navbar__title {
+.navbar .scrolled {
+  box-shadow: 0 22px 14px rgba(0, 0, 0, 0.2);
+}
+
+.navbar__title-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* ----------------   LOGO   ---------------------- */
+
+.logo-text {
+  font-family: "Yu Gothic", Arial, sans-serif;
+  font-size: 24px;
   font-weight: bold;
+  color: #333333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 5px 10px;
+  background-color: var(--body-color);
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo-red::before {
+  content: "M";
+  color: var(--red-sec-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.logo-red {
+  color: var(--red-sec-color);
 }
 
 .navbar__menu {
@@ -81,7 +120,7 @@
   .navbar__menu {
     margin-right: 20px;
   }
-  .navbar__title {
+  .navbar__title-logo {
     padding: 0 2rem;
   }
 
@@ -107,12 +146,13 @@ h2 {
 
 .search-bar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 10px;
   background-color: #f1f1f1;
   border-radius: 5px;
-  padding: 5px;
+  padding: 0.5rem;
   transition: all 0.3s ease;
+  height: 3rem;
 }
 
 .search-bar.visible {

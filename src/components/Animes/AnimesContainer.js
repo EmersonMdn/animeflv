@@ -1,41 +1,22 @@
-// import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import AnimeReleaseCalendar from "../AnimeReleaseCalendar/AnimeReleaseCalendar";
 import NewsContainer from "../NewsContainer/NewsContainer";
 import ItemCard from "./ItemCard/ItemCard";
-// import { Comics } from "../../context/MarvelContex";
-
-import { useEffect, useState } from "react";
+import { Context } from "../../context/Context";
 
 const AnimesContainer = () => {
-  // const url =
-  //   "https://anime-db.p.rapidapi.com/anime?page=1&size=10&sortBy=ranking&sortOrder=asc";
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": "be2db38526msh77d08457b87faf4p1bc1a7jsnf4fe45d0237d",
-  //     "X-RapidAPI-Host": "anime-db.p.rapidapi.com",
-  //   },
-  // };
-
-  const [animes, setAnimes] = useState([]);
-
-  const getAnimes = async () => {
-    const response = await fetch("./data.json");
-    const data = await response.json();
-    return data;
-  };
-
-  useEffect(() => {
-    getAnimes().then((data) => {
-      setAnimes(data);
-    });
-  }, []);
+  const { topAnime, topManga } = useContext(Context);
 
   return (
     <>
-      <section id="animes_container" className="animes_container">
-        <h1 className="section__title">Most watcheds</h1>
-        <ItemCard animes={animes} />
+      <section id="animes_container" className="animes_container box">
+        <h1 className="section__title">Top Animes</h1>
+        <ItemCard animes={topAnime} />
+      </section>
+
+      <section id="mangas_container" className="mangas_container box">
+        <h1 className="section__title">Top Mangas</h1>
+        <ItemCard animes={topManga} />
       </section>
 
       <section>

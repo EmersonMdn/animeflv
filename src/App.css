@@ -2,59 +2,17 @@
 
 .animes_container {
   gap: 1rem;
+  margin-top: calc(80px + 10px);
 }
-
-/* .animes__card {
-  position: relative;
-  width: 22rem;
-  padding: 0.3rem;
-  text-align: center;
-} */
-
-/* .animes__card-img {
-  text-align: center;
-  object-fit: contain;
-  border-radius: 15px;
-} */
-
-/* .animes__card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  opacity: 0;
-  transition: 0.9s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* .animes__card:hover .animes__card-overlay {
-  opacity: 1;
-} */
-/* .animes__card-text {
-  color: white;
-  font-size: 18px;
-  text-align: center;
-} */
-/* .animes__card-btn {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--red-color);
-  border: none;
-  color: var(--body-color);
-  padding: 10px 0;
-  cursor: pointer;
-  font-size: 1.25rem;
-} */
 
 .section__title {
   width: 100%;
   font-weight: 500;
   text-align: center;
+}
+
+.box {
+  margin-bottom: 2.7rem;
 }
 
 .splide__slide {
@@ -76,4 +34,5 @@
   padding: 10px;
   border-radius: 4px;
   font-size: 14px;
+  font-family: Poppins;
 }

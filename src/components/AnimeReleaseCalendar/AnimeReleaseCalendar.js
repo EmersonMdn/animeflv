@@ -42,22 +42,21 @@ const AnimeReleaseCalendar = () => {
                   </p>
                 </div>
               )}
-              <button className="release-card__btn button-see-more">
-                Ver mas
-              </button>
-
               {release.episodes && (
                 <p className="release-card__episodes">
                   Episodes: {release.episodes}
                 </p>
               )}
-
+              
               {release.aired.from && (
                 <p className="release-card__date">
                   Release Date:{" "}
                   {moment(release.aired.from).format("DD-MM-YYYY")}
                 </p>
               )}
+              <button className="release-card__btn button-see-more">
+                Ver mas
+              </button>
             </div>
           </div>
         ))}
