@@ -1,0 +1,61 @@
+.ranking__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.top-animes,
+.top-mangas {
+  background-color: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.top-animes__list,
+.top-mangas__list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.2rem 0;
+}
+
+.top-animes__img {
+  height: 4rem;
+  object-fit: contain;
+}
+
+.score-icon {
+  color: var(--red-sec-color);
+}
+
+/** Estilos responsive */
+@media (max-width: 576px) {
+  .top-animes__img {
+    width: 3rem;
+    height: 4rem;
+    object-fit: cover;
+  }
+  .top-mangas__img {
+    width: 3rem;
+    height: 4rem;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 776px) {
+  .ranking__container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+
+  
+}
+
+@media (max-width: 992px) {
+  .fav-box {
+    top: 3%;
+    right: 3%;
+    font-size: 2.5rem;
+  }
+}

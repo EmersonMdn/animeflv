@@ -15,7 +15,7 @@ const ContextProvider = ({ children }) => {
   const getTopAnime = async () => {
     try {
       const response = await fetch(
-        "https://api.jikan.moe/v4/top/anime?limit=20&filter=favorite"
+        "https://api.jikan.moe/v4/top/anime?limit=10"
       );
       const data = await response.json();
 
@@ -30,7 +30,7 @@ const ContextProvider = ({ children }) => {
   const getTopManga = async () => {
     try {
       const response = await fetch(
-        "https://api.jikan.moe/v4/top/manga?limit=20&filter=favorite"
+        "https://api.jikan.moe/v4/top/manga?limit=10"
       );
       const data = await response.json();
 

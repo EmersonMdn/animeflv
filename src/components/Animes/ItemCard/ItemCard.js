@@ -1,6 +1,6 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ItemCard = ({ animes }) => {
   const carouselOptions = {
@@ -29,7 +29,6 @@ const ItemCard = ({ animes }) => {
   };
 
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [animeList, setAnimeList] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
 
   const handleMouseEnter = (index) => {
@@ -40,16 +39,6 @@ const ItemCard = ({ animes }) => {
     setHoveredItem(null);
   };
 
-  const handleFavItem = (malId) => {
-    const updatedAnimes = animeList.map((anime) => {
-      if (anime.mal_id === malId) {
-        return { ...anime, isFavorite: !anime.isFavorite };
-      }
-      return anime;
-    });
-    setAnimeList(updatedAnimes);
-  };
-
   const handleClick = () => {
     setShowPopup(true);
     setTimeout(() => {
@@ -57,21 +46,17 @@ const ItemCard = ({ animes }) => {
     }, 2000); // El mensaje se ocultará después de 2 segundos (2000 ms)
   };
 
-  const getButtonClassName = (index) => {
-    return animeList[index].isFavorite
-      ? "bx bxs-bookmark-plus fav-box active"
-      : "bx bx-bookmark-plus fav-box ";
-  };
-
-  useEffect(() => {
-    setAnimeList(animes);
-  }, [animes]);
-
   return (
     <>
+      {showPopup && (
+        <div className="popup">
+          {" "}
+          <i className="bx bx-check check-fav"></i> Agregado a favoritos
+        </div>
+      )}
       <Splide options={carouselOptions}>
-        {animeList ? (
-          animeList.map((item, index) => (
+        {animes ? (
+          animes.map((item, index) => (
             <SplideSlide key={index}>
               <div
                 className="carousel-item "
@@ -79,28 +64,20 @@ const ItemCard = ({ animes }) => {
                 onMouseLeave={handleMouseLeave}
               >
                 <img
-                  src={item.images.jpg.image_url}
+                  src={item.images.webp.large_image_url}
                   alt={`Foto ${item.title}`}
                 />
+
                 {hoveredItem === index && (
                   <>
                     <div className="tooltip">{item.title}</div>
                     <i
                       onClick={() => {
-                        handleFavItem(item.mal_id);
                         handleClick();
                       }}
-                      className={getButtonClassName(index)}
+                      className="bx bx-bookmark-plus fav-box"
                     ></i>
                   </>
-                )}
-
-                {showPopup && (
-                  <div className="popup">
-                    {item.isFavorite
-                      ? "Quitado de favoritos"
-                      : "Agregado a favoritos"}
-                  </div>
                 )}
               </div>
             </SplideSlide>

@@ -3,6 +3,9 @@ import AnimeReleaseCalendar from "../AnimeReleaseCalendar/AnimeReleaseCalendar";
 import NewsContainer from "../NewsContainer/NewsContainer";
 import ItemCard from "./ItemCard/ItemCard";
 import { Context } from "../../context/Context";
+import AnimesRanking from "../Rankings/AnimesRanking";
+import MangasRanking from "../Rankings/MangasRanking";
+import "../Rankings/Ranking.css";
 
 const AnimesContainer = () => {
   const { topAnime, topManga } = useContext(Context);
@@ -18,6 +21,11 @@ const AnimesContainer = () => {
         <h1 className="section__title">Top Mangas</h1>
         <ItemCard animes={topManga} />
       </section>
+
+      <div className="ranking__container">
+        <AnimesRanking />
+        <MangasRanking />
+      </div>
 
       <section>
         <AnimeReleaseCalendar />
