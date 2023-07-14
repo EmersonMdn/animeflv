@@ -21,7 +21,10 @@
 
 .splide__slide img {
   height: 17.6rem;
-  cursor: pointer;
+}
+
+.carousel-item {
+  position: relative;
 }
 
 .tooltip {
@@ -35,4 +38,85 @@
   border-radius: 4px;
   font-size: 14px;
   font-family: Poppins;
+}
+
+.fav-box {
+  position: absolute;
+  top: 1%;
+  right: 7%;
+  font-size: 2.9rem;
+  color: var(--red-sec-color);
+  cursor: pointer;
+  animation: top-entrance 400ms ease;
+}
+
+.fav-box:active {
+  transform: scale(0.8);
+}
+
+/** ------------ POPUP ------------ */
+
+.popup {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem 2.5rem;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  animation: popup-entrance 0.3s ease-in-out;
+}
+
+@keyframes popup-entrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/** Estilos responsive */
+@media (max-width: 576px) {
+  .fav-box {
+    top: 5%;
+    right: 5%;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .fav-box {
+    top: 3%;
+    right: 3%;
+    font-size: 2.5rem;
+  }
+}
+
+/**--------------- ANIMACIONES------------- */
+
+@keyframes top-entrance {
+  0% {
+    opacity: 0;
+    top: -30%;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bottom-entrance {
+  0% {
+    opacity: 0;
+    bottom: 100%;
+    transform: translate(0);
+  }
+  100% {
+    opacity: 1;
+  }
 }
