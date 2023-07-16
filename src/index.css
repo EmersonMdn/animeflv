@@ -23,6 +23,10 @@ font-family: 'Roboto Condensed', sans-serif;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul li {
   list-style: none;
 }
@@ -40,6 +44,7 @@ body {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: calc(80px + 10px);
 }
 
 @media (min-width: 576px) {

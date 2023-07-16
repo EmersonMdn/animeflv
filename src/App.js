@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AnimesContainer from "./components/Animes/AnimesContainer";
 import Header from "./components/Header/Header.js";
-import ItemDetail from "./components/ItemDetail/ItemDetail";
 import SideBar from "./components/SideBar/SideBar";
+import ItemDetailPage from "./components/ItemDetailPage/ItemDetailPage";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<AnimesContainer />} />
-              <Route path="/anime/:id" element={<ItemDetail />} />
+              <Route path="/:type/:id" element={<ItemDetailPage />} />
             </Routes>
           </main>
         </div>

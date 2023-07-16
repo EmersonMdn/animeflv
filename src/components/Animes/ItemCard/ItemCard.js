@@ -1,8 +1,9 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ItemCard = ({ animes }) => {
+const ItemCard = ({ data, type }) => {
   const carouselOptions = {
     type: "slide",
     rewind: true,
@@ -30,6 +31,7 @@ const ItemCard = ({ animes }) => {
 
   const [hoveredItem, setHoveredItem] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = (index) => {
     setHoveredItem(index);
@@ -46,6 +48,11 @@ const ItemCard = ({ animes }) => {
     }, 2000); // El mensaje se ocultará después de 2 segundos (2000 ms)
   };
 
+  const handleDetail = (id) => {
+    navigate(`/${type}/${id}`);
+    console.log(`/${type}/${id}`);
+  };
+
   return (
     <>
       {showPopup && (
@@ -55,8 +62,8 @@ const ItemCard = ({ animes }) => {
         </div>
       )}
       <Splide options={carouselOptions}>
-        {animes ? (
-          animes.map((item, index) => (
+        {data ? (
+          data.map((item, index) => (
             <SplideSlide key={index}>
               <div
                 className="carousel-item "
@@ -66,6 +73,7 @@ const ItemCard = ({ animes }) => {
                 <img
                   src={item.images.webp.large_image_url}
                   alt={`Foto ${item.title}`}
+                  onClick={() => handleDetail(item.mal_id)}
                 />
 
                 {hoveredItem === index && (

@@ -1,13 +1,14 @@
 import "./Header.css";
 import { useEffect, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
 
   const navigationItems = [
     { name: "Inicio", path: "/" },
@@ -15,8 +16,6 @@ const Header = () => {
     { name: "Películas", path: "/peliculas" },
     // Agrega más elementos de navegación según tus necesidades
   ];
-
-  const navigate = useNavigate();
 
   // SCROLL
   useEffect(() => {
@@ -62,9 +61,9 @@ const Header = () => {
       <header id="header" className="header">
         <nav className={scrolled ? "navbar scrolled" : "navbar"}>
           <div className="navbar__title-logo">
-            <span className="logo-text">
+            <Link to='/' className="logo-text">
               aNi<span className="logo-red">M</span>
-            </span>
+            </Link>
           </div>
           <div className="navbar__menu" onClick={toggleSidebar}>
             {sidebarOpen ? <FaTimes /> : <FaBars />}

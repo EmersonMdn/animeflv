@@ -14,12 +14,12 @@ const AnimesContainer = () => {
     <>
       <section id="animes_container" className="animes_container box">
         <h1 className="section__title">Top Animes</h1>
-        <ItemCard animes={topAnime} />
+        <ItemCard data={topAnime} type="anime" />
       </section>
 
       <section id="mangas_container" className="mangas_container box">
         <h1 className="section__title">Top Mangas</h1>
-        <ItemCard animes={topManga} />
+        <ItemCard data={topManga} type="manga" />
       </section>
 
       <div className="ranking__container">

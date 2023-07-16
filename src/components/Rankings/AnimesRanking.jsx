@@ -4,7 +4,7 @@ import "./MangasRanking";
 
 const AnimesRanking = () => {
   const { topAnime } = useContext(Context);
-  console.log(topAnime);
+  // console.log(topAnime);
 
   return (
     <div className="top-animes">

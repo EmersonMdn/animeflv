@@ -3,10 +3,10 @@ import { Context } from "../../context/Context";
 
 const MangasRanking = () => {
   const { topManga } = useContext(Context);
-  console.log(
-    "🚀 ~ file: MangasRanking.jsx:6 ~ MangasRanking ~ topManga:",
-    topManga
-  );
+  // console.log(
+  //   "🚀 ~ file: MangasRanking.jsx:6 ~ MangasRanking ~ topManga:",
+  //   topManga
+  // );
 
   return (
     <div className="top-mangas">
