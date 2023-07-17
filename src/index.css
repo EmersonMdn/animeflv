@@ -47,6 +47,27 @@ body {
   margin-top: calc(80px + 10px);
 }
 
+.hovered {
+  cursor: pointer;
+}
+
+.btn {
+  padding: 10px 20px;
+  /* background-color: #ff3366; */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.splide__pagination__page.is-active {
+  background: var(--red-sec-color) !important;
+}
+.splide__pagination__page {
+  background: var(--red-color) !important;
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

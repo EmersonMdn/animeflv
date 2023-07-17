@@ -11,7 +11,6 @@ const ItemCard = ({ data, type }) => {
     perPage: 5,
     gap: "1rem",
     autoHeight: "auto",
-    focus: "center",
     // autoWidth: true,
     breakpoints: {
       576: {
@@ -83,7 +82,7 @@ const ItemCard = ({ data, type }) => {
                       onClick={() => {
                         handleClick();
                       }}
-                      className="bx bx-bookmark-plus fav-box"
+                      className="bx bxs-bookmark-plus fav-box"
                     ></i>
                   </>
                 )}

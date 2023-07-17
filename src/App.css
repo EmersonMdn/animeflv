@@ -2,7 +2,6 @@
 
 .animes_container {
   gap: 1rem;
-  
 }
 
 .section__title {
@@ -48,6 +47,9 @@
   color: var(--red-sec-color);
   cursor: pointer;
   animation: top-entrance 400ms ease;
+  background-color: #ffffff55;
+  border-radius: 4px;
+  border: 2px solid var(--red-sec-color);
 }
 
 .fav-box:active {
@@ -63,6 +65,71 @@
   color: #fff;
   animation: stick-entry 0.5s ease-in-out forwards;
 }
+
+/**---------------------------- BANNER--------------- */
+
+.banner__container {
+  background: linear-gradient(
+    50deg,
+    var(--primary-light-color) 25%,
+    var(--red-sec-color),
+    #ff3366
+  );
+  color: var(--body-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem auto;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: Poppins;
+  gap: 1rem;
+}
+.banner__container-item {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+  z-index: 20;
+}
+
+.banner__container-wrapper {
+  /* border: 1px solid rgba(255, 255, 255, 0.942); */
+  border-radius: 0.5rem;
+}
+
+.subscribe-button,
+.explore-button {
+  padding: 10px 20px;
+  background-image: linear-gradient(
+    to right top,
+    #ff3366,
+    var(--primary-light-color)
+  );
+
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 0.8rem;
+  font-family: Poppins;
+}
+
+@media (max-width: 778px) {
+  .banner__container {
+    padding: 0.5rem;
+  }
+
+  .banner__container-item {
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.7rem;
+  }
+
+  .subscribe-button,
+  .explore-button {
+    font-size: 0.6rem;
+  }
+}
+
 
 /** ------------ POPUP ------------ */
 

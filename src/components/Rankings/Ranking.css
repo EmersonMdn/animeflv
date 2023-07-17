@@ -19,9 +19,18 @@
   padding: 0.2rem 0;
 }
 
-.top-animes__img {
+.top-mangas__rank,
+.top-animes__rank {
+  width: 9px;
+  padding: 0.5rem;
+}
+
+.top-animes__img,
+.top-mangas__img {
   height: 4rem;
+  width: 2rem;
   object-fit: contain;
+  border-radius: 4px;
 }
 
 .score-icon {
@@ -48,8 +57,6 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
   }
-
-  
 }
 
 @media (max-width: 992px) {

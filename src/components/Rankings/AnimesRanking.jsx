@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
 import { Context } from "../../context/Context";
 import "./MangasRanking";
+import { useNavigate } from "react-router-dom";
 
 const AnimesRanking = () => {
   const { topAnime } = useContext(Context);
   // console.log(topAnime);
+
+  const navigate = useNavigate();
+
+  const handlePage = (id) => {
+    navigate(`/anime/${id}`);
+  };
 
   return (
     <div className="top-animes">
@@ -13,13 +20,20 @@ const AnimesRanking = () => {
         {topAnime &&
           topAnime.map((item, index) => (
             <li key={index} className="top-animes__list">
-              <p>{item.rank}</p>
+              <p className="top-animes__rank">{item.rank}</p>
               <img
                 src={item.images.webp.small_image_url}
                 className="top-animes__img"
                 alt={item.title}
               />
-              <p>{item.title}</p>
+              <p
+                className="hovered"
+                onClick={() => {
+                  handlePage(item.mal_id);
+                }}
+              >
+                {item.title}
+              </p>
               <p>
                 <i className="bx bxs-star score-icon"></i> {item.score}
               </p>
