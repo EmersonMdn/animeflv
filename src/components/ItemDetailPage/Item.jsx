@@ -67,7 +67,7 @@ export const Item = ({ item }) => {
               <p>
                 <strong>Themes: </strong>{" "}
                 {item.themes.map((e, index) => (
-                  <span key={index}>{e.name} </span>
+                  <span key={index}>{e.name}, </span>
                 ))}
               </p>
             </div>
@@ -110,10 +110,12 @@ export const Item = ({ item }) => {
               <p className="synopsis__text">{item.synopsis}</p>
             </div>
 
-            <div className="background">
-              <h3>Background</h3> <hr />
-              <p className="synopsis__text">{item.background}</p>
-            </div>
+            {item.background && (
+              <div className="background">
+                <h3>Background</h3> <hr />
+                <p className="synopsis__text">{item.background}</p>
+              </div>
+            )}
           </div>
         </div>
       ) : (

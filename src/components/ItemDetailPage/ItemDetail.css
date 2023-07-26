@@ -13,8 +13,10 @@
 }
 
 .item__card_left-side-img {
-  height: 100%;
-  border-radius: 4px;
+  height: 21rem;
+  width: 100%;
+  border-radius: 40px;
+  object-fit: contain;
 }
 
 .item__card_information {
@@ -83,19 +85,10 @@
 
 .scoreboard__trailer {
   position: relative;
+  padding: 0 0.3rem;
 }
 
 .scoreboard-play {
-  width: 3rem;
-  height: 3rem;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 100%;
-  background-color: var(--red-sec-color);
-
   position: absolute;
   top: 50%;
   left: 50%;
@@ -104,7 +97,7 @@
 }
 
 .scoreboard-play i {
-  font-size: 2.3rem;
+  font-size: 1rem;
   color: #fff;
 }
 
@@ -128,4 +121,5 @@
   text-align: justify;
   color: rgba(0, 0, 0, 0.7);
   font-size: 1.1rem;
+  padding-top: 1rem;
 }
