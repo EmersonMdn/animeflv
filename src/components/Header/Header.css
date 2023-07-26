@@ -12,15 +12,15 @@
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(to right, var(--red-color), var(--red-sec-color));
-  padding: 10px 20px;
+  padding: 15px 5%;
+  margin: 0 auto;
   color: #fff;
-
   position: fixed;
   top: 0;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  z-index: 20;
+  z-index: 60;
 }
 
 .navbar .scrolled {

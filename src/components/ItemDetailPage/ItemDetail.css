@@ -1,0 +1,19 @@
+.item__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.item__card_left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: var(--red-color) 2px solid; */
+}
+
+.item__card_left-side-img {
+  width: 100%;
+  height: 20rem;
+}

@@ -59,12 +59,13 @@ const Header = () => {
   return (
     <>
       <header id="header" className="header">
-        <nav className={scrolled ? "navbar scrolled" : "navbar"}>
+        <nav className={scrolled ? "navbar scrolled" : "navbar "}>
           <div className="navbar__title-logo">
-            <Link to='/' className="logo-text">
+            <Link to="/" className="logo-text">
               aNi<span className="logo-red">M</span>
             </Link>
           </div>
+
           <div className="navbar__menu" onClick={toggleSidebar}>
             {sidebarOpen ? <FaTimes /> : <FaBars />}
           </div>

@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import "./ItemDetail.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Item } from "./Item";
 
 const ItemDetailPage = ({ saludo }) => {
   const [item, setItem] = useState(null);
@@ -17,15 +19,9 @@ const ItemDetailPage = ({ saludo }) => {
   }, []);
 
   return (
-    <div>
-      {item ? (
-        <img src={item.images.webp.large_image_url} alt="sd" /> //? SPINNER LOADER
-      ) : (
-        <div className="loader-container">
-          <span className="loader"></span>
-        </div>
-      )}
-    </div>
+    <>
+      <Item item={item} />
+    </>
   );
 };
 
