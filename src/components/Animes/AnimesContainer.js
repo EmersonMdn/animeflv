@@ -32,7 +32,7 @@ const AnimesContainer = () => {
 
           <div className="banner__container-wrapper">
             <button className="banner__container-btn btn explore-button">
-              Explore Our Anime App
+              Explore
             </button>
           </div>
         </div>

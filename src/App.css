@@ -111,6 +111,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 0.8rem;
   font-family: Poppins;
+  height: 100%;
 }
 
 @media (max-width: 578px) {
