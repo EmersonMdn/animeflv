@@ -133,6 +133,7 @@
   .subscribe-button,
   .explore-button {
     font-size: 0.6rem;
+    width: 100%;
   }
 }
 

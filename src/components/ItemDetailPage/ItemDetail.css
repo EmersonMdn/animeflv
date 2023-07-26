@@ -13,11 +13,12 @@
 }
 
 .item__card_left-side-img {
-  width: 24rem;
+  height: 100%;
   border-radius: 4px;
 }
 
 .item__card_information {
+  font-family: "Roboto Condensed", sans-serif;
   padding: 2rem 1.5rem;
   margin: 1rem auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -121,6 +122,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   padding: 1rem 1rem;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .synopsis__text {
   text-align: justify;
