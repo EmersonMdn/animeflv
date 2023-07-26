@@ -49,7 +49,6 @@ const ItemCard = ({ data, type }) => {
 
   const handleDetail = (id) => {
     navigate(`/${type}/${id}`);
-    console.log(`/${type}/${id}`);
   };
 
   return (

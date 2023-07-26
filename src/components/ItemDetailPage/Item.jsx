@@ -1,7 +1,7 @@
 import moment from "moment";
+import Characters from "./Characters/Characters";
 
 export const Item = ({ item }) => {
-  console.log("🚀 ~ file: Item.jsx:4 ~ Item ~ item:", item);
   return (
     <div>
       {item ? (
@@ -116,6 +116,8 @@ export const Item = ({ item }) => {
                 <p className="synopsis__text">{item.background}</p>
               </div>
             )}
+
+            <Characters id={item.mal_id} />
           </div>
         </div>
       ) : (

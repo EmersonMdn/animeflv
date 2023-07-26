@@ -10,9 +10,8 @@ const ItemDetailPage = ({ saludo }) => {
 
   useEffect(() => {
     const getItemDetail = async () => {
-      const res = await fetch(`https://api.jikan.moe/v4/${type}/${id}/full`);
+      const res = await fetch(`https://api.jikan.moe/v4/${type}/${id}`);
       const data = await res.json();
-      console.log(data.data);
       setItem(data.data);
     };
     getItemDetail();
