@@ -50,34 +50,34 @@ const Characters = ({ id }) => {
                 <p>{e.character.name}</p>
               </div>
 
-              {e.voice_actors.length === 0 ? (
-                <div className="voice-container">
-                  <p className="no-info">No info</p>
-                </div>
-              ) : (
-                e.voice_actors.find(
-                  (actor) => actor.language === "Japanese"
-                ) && (
+              {e.voice_actors &&
+                (e.voice_actors.length === 0 ? (
                   <div className="voice-container">
-                    <img
-                      src={
-                        e.voice_actors.find(
-                          (actor) => actor.language === "Japanese"
-                        ).person.images.jpg.image_url
-                      }
-                      alt=""
-                    />
-
-                    <p>
-                      {
-                        e.voice_actors.find(
-                          (actor) => actor.language === "Japanese"
-                        ).person.name
-                      }
-                    </p>
+                    <p className="no-info">No info</p>
                   </div>
-                )
-              )}
+                ) : (
+                  e.voice_actors.find(
+                    (actor) => actor.language === "Japanese"
+                  ) && (
+                    <div className="voice-container">
+                      <img
+                        src={
+                          e.voice_actors.find(
+                            (actor) => actor.language === "Japanese"
+                          ).person.images.jpg.image_url
+                        }
+                        alt=""
+                      />
+                      <p>
+                        {
+                          e.voice_actors.find(
+                            (actor) => actor.language === "Japanese"
+                          ).person.name
+                        }
+                      </p>
+                    </div>
+                  )
+                ))}
             </div>
           ))}
         </div>

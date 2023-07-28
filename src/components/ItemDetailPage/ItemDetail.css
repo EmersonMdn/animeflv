@@ -104,6 +104,7 @@
   width: 100%;
   transition: 0.3s;
   height: 100%;
+  object-fit: contain;
 }
 
 .scoreboard__trailer img:hover {
@@ -164,6 +165,7 @@
 .character-container {
   display: flex;
   align-items: center;
+  color: rgb(76, 76, 76);
 }
 
 .voice-container {
@@ -173,6 +175,8 @@
 .showMore-btn {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
   color: #fff;
   padding: 0.4rem;
   outline: 0;
@@ -189,7 +193,7 @@
 
 /** ---------MEDIAS ----------------------*/
 
-@media (min-width: 708px) {
+@media (min-width: 870px) {
   .item__card {
     grid-template-columns: 20rem 1fr;
     column-gap: 0.5rem;
@@ -214,6 +218,12 @@
     text-align: start;
     font-size: 0.85rem;
   }
+  .item__card_information p {
+    font-size: 0.86rem;
+  }
+}
+
+@media (min-width: 970px) {
   .characters__group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

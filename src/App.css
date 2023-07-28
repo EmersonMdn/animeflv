@@ -114,30 +114,6 @@
   height: 100%;
 }
 
-@media (max-width: 578px) {
-  .banner__container {
-    padding: 0.5rem;
-    position: fixed;
-    bottom: 0;
-    margin: 0;
-    left: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-  }
-
-  .banner__container-item {
-    flex-direction: column;
-    gap: 0.2rem;
-    font-size: 0.7rem;
-  }
-
-  .subscribe-button,
-  .explore-button {
-    font-size: 0.6rem;
-    width: 100%;
-  }
-}
-
 /** ------------ POPUP ------------ */
 
 .popup {
@@ -174,6 +150,28 @@
   }
   .splide__slide img {
     height: 24.6rem;
+  }
+
+  .banner__container {
+    padding: 0.5rem;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+  }
+
+  .banner__container-item {
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .subscribe-button,
+  .explore-button {
+    font-size: 0.6rem;
+    width: 100%;
   }
 }
 
