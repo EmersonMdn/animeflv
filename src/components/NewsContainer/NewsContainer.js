@@ -17,8 +17,10 @@ const NewsContainer = () => {
         const data = await response.json();
         const newsData = data.articles;
         setNews(newsData);
+
         const totalResults = data.totalResults;
         setTotalPages(Math.ceil(totalResults / resultsPerPage));
+        
       } catch (error) {
         console.error("Error fetching news:", error);
       }

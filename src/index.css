@@ -10,7 +10,6 @@ font-family: 'Roboto Condensed', sans-serif;
 
 */
 
-
 :root {
   --primary-color: #1d3557;
   --primary-light-color: #457b9d;
@@ -64,6 +63,13 @@ body {
   position: relative;
 }
 
+.section-title{
+  text-align: center;
+  padding-top: .9rem;
+}
+
+
+
 .splide__pagination__page.is-active {
   background: var(--red-sec-color) !important;
 }
@@ -97,10 +103,12 @@ body {
 
 /** LOADER SPINNER */
 .loader-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 16rem;
+  text-align: center;
 }
 .loader {
   width: 48px;

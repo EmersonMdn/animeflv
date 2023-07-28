@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import AnimeReleaseCalendar from "../AnimeReleaseCalendar/AnimeReleaseCalendar";
-import NewsContainer from "../NewsContainer/NewsContainer";
+// import NewsContainer from "../NewsContainer/NewsContainer";
 import ItemCard from "./ItemCard/ItemCard";
 import { Context } from "../../context/Context";
 import AnimesRanking from "../Rankings/AnimesRanking";
@@ -52,9 +52,9 @@ const AnimesContainer = () => {
         <AnimeReleaseCalendar />
       </section>
 
-      <section>
+      {/* <section>
         <NewsContainer />
-      </section>
+      </section> */}
     </>
   );
 };
