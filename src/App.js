@@ -4,6 +4,7 @@ import AnimesContainer from "./components/Animes/AnimesContainer";
 import Header from "./components/Header/Header.js";
 import SideBar from "./components/SideBar/SideBar";
 import ItemDetailPage from "./components/ItemDetailPage/ItemDetailPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </main>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

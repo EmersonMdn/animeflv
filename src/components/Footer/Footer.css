@@ -1,0 +1,59 @@
+/* Estilos generales del footer */
+.footer {
+  background-image: linear-gradient(
+    to right top,
+    #ff3366,
+    var(--red-sec-color)
+  );
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  padding-bottom: calc(80px + 15px);
+  animation: bottom-entrance ease 3s;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Estilos para los íconos de redes sociales */
+.footer-icon {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 5px;
+}
+
+/* Estilos para los enlaces de la sección de links */
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+/* Estilos para el texto de copyright */
+.footer-copyright {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .footer {
+    padding-bottom: 3rem;
+  }
+}

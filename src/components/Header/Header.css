@@ -49,7 +49,6 @@
 }
 
 .logo-red::before {
-  content: "M";
   color: var(--red-sec-color);
   position: absolute;
   right: 0;

@@ -19,7 +19,6 @@ const Characters = ({ id }) => {
         `https://api.jikan.moe/v4/${type}/${id}/characters`
       );
       const data = await res.json();
-      console.log(data.data);
       setCharacters(data.data);
     } catch (error) {
       console.error("Error fetching characters:", error);
@@ -40,7 +39,7 @@ const Characters = ({ id }) => {
 
   return (
     <>
-      <div className="characters_voices-container">
+      <div className="characters_voices-container box">
         <h2 className="section-title">Characters and voice actors</h2>
         <div className="characters__group">
           {characters.slice(0, resultsToShow).map((e, index) => (

@@ -10,8 +10,7 @@ const ItemCard = ({ data, type }) => {
     autoplay: true,
     perPage: 5,
     gap: "1rem",
-    autoHeight: "auto",
-    // autoWidth: true,
+    autoWidth: "auto",
     breakpoints: {
       576: {
         perPage: 1,

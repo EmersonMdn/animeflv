@@ -229,3 +229,26 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Estilos para el carousel */
+.carousel-container {
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+/* Estilos para cada recomendación */
+.carousel-recommendation {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.recommendation-img {
+  width: 100%;
+  max-width: 200px;
+  object-fit: contain;
+  height: auto;
+}

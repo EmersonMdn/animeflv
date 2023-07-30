@@ -1,5 +1,6 @@
 import moment from "moment";
 import Characters from "./Characters/Characters";
+import Recomendations from "./Recommendations/Recomendations";
 
 export const Item = ({ item }) => {
   return (
@@ -118,6 +119,8 @@ export const Item = ({ item }) => {
             )}
 
             <Characters id={item.mal_id} />
+
+            <Recomendations />
           </div>
         </div>
       ) : (
