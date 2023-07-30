@@ -8,14 +8,15 @@ const ItemDetailPage = ({ saludo }) => {
   const [item, setItem] = useState(null);
   const { type, id } = useParams();
 
+  const getItemDetail = async () => {
+    const res = await fetch(`https://api.jikan.moe/v4/${type}/${id}`);
+    const data = await res.json();
+    setItem(data.data);
+  };
+  
   useEffect(() => {
-    const getItemDetail = async () => {
-      const res = await fetch(`https://api.jikan.moe/v4/${type}/${id}`);
-      const data = await res.json();
-      setItem(data.data);
-    };
     getItemDetail();
-  }, []);
+  }, [item]);
 
   return (
     <>

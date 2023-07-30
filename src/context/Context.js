@@ -43,7 +43,9 @@ const ContextProvider = ({ children }) => {
   };
 
   return (
-    <Context.Provider value={{ popular, topAnime, topManga, isLoading }}>
+    <Context.Provider
+      value={{ popular, topAnime, topManga, isLoading, setIsLoading }}
+    >
       {children}
     </Context.Provider>
   );

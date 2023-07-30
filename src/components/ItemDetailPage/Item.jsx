@@ -120,7 +120,7 @@ export const Item = ({ item }) => {
 
             <Characters id={item.mal_id} />
 
-            <Recomendations />
+            <Recomendations id={item.mal_id} />
           </div>
         </div>
       ) : (

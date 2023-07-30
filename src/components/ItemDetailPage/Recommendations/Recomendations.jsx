@@ -1,16 +1,19 @@
+import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Recomendations = () => {
+const Recomendations = ({ id }) => {
   const { type } = useParams();
   const [recommendations, setRecommendations] = useState([]);
+  const [error, setError] = useState(null); // Estado para manejar errores
+  const [isLoading, setIsLoading] = useState(true);
+  const navegate = useNavigate();
 
   const carouselOptions = {
     perPage: 5,
     rewind: true,
+    autoplay: true,
     gap: "1rem",
     autoHeight: true,
     breakpoints: {
@@ -27,17 +30,39 @@ const Recomendations = () => {
   };
 
   const getRecentAnimeRecommendations = async () => {
-    const res = await fetch("https://api.jikan.moe/v4/recommendations/anime");
-    const data = await res.json();
-    const firstTenElements = data.data.slice(0, 10);
-    setRecommendations(firstTenElements);
+    try {
+      const res = await fetch(
+        `https://api.jikan.moe/v4/anime/${id}/recommendations`
+      );
+      const data = await res.json();
+      const firstTenElements = data.data.slice(0, 10);
+      setRecommendations(firstTenElements);
+      setIsLoading(false);
+    } catch (error) {
+      setError("Error fetching anime recommendations");
+      setIsLoading(false);
+    }
   };
 
   const getRecentMangaRecommendations = async () => {
-    const res = await fetch("https://api.jikan.moe/v4/recommendations/manga");
-    const data = await res.json();
-    const firstTenElements = data.data.slice(0, 10);
-    setRecommendations(firstTenElements);
+    try {
+      const res = await fetch(
+        `https://api.jikan.moe/v4/manga/${id}/recommendations`
+      );
+      const data = await res.json();
+      const firstTenElements = data.data.slice(0, 10);
+      setRecommendations(firstTenElements);
+      setIsLoading(false);
+    } catch (error) {
+      setError("Error fetching manga recommendations");
+      setIsLoading(false);
+    }
+  };
+
+  const navegateItem = async (type, id) => {
+    setIsLoading(true);
+    navegate(`/${type}/${id}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -47,26 +72,33 @@ const Recomendations = () => {
       getRecentMangaRecommendations();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id, type]);
 
   return (
     <div className="carousel-container">
       <h2 className="section-title">Recommendations</h2>
-      <Splide options={carouselOptions}>
-        {recommendations.length > 0
-          ? recommendations.map((item, index) => (
-              <SplideSlide key={index}>
-                <div className="carousel-recommendation">
-                  <img
-                    src={item.entry[0].images.jpg.image_url}
-                    alt={item.entry[0].title}
-                    className="recommendation-img"
-                  />
-                </div>
-              </SplideSlide>
-            ))
-          : null}
-      </Splide>
+      {isLoading ? (
+        <div className="loader-container">
+          <span className="loader"></span>
+        </div>
+      ) : error ? (
+        <div className="error-message">{error}</div>
+      ) : (
+        <Splide options={carouselOptions}>
+          {recommendations.map((item, index) => (
+            <SplideSlide key={index}>
+              <div className="carousel-recommendation">
+                <img
+                  src={item.entry.images.webp.large_image_url}
+                  alt={item.entry.title}
+                  className="recommendation-img"
+                  onClick={() => navegateItem(type, item.entry.mal_id)}
+                />
+              </div>
+            </SplideSlide>
+          ))}
+        </Splide>
+      )}
     </div>
   );
 };
