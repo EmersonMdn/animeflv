@@ -53,7 +53,7 @@ const Recomendations = () => {
     <div className="carousel-container">
       <h2 className="section-title">Recommendations</h2>
       <Splide options={carouselOptions}>
-        {recommendations
+        {recommendations.length > 0
           ? recommendations.map((item, index) => (
               <SplideSlide key={index}>
                 <div className="carousel-recommendation">
