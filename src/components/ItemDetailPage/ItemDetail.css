@@ -217,6 +217,12 @@
   height: auto;
   cursor: pointer;
 }
+.animate__animated.animate__fadeInLeft {
+  --animate-duration: 700ms;
+}
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 1000ms;
+}
 
 /** ---------MEDIAS ----------------------*/
 

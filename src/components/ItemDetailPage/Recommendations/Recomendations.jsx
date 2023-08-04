@@ -62,7 +62,6 @@ const Recomendations = ({ id }) => {
   const navegateItem = async (type, id) => {
     setIsLoading(true);
     navegate(`/${type}/${id}`);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {

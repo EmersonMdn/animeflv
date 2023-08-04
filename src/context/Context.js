@@ -30,15 +30,17 @@ const ContextProvider = ({ children }) => {
 
       //?--------- GET TOP MANGAS -------------------
       // Delay before getting top manga
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       const response3 = await fetch(
         "https://api.jikan.moe/v4/top/manga?limit=10"
       );
       const data3 = await response3.json();
       setTopManga(data3.data);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error al obtener los datos:", error);
-      setIsLoading(false); // Manejar el error y actualizar isLoading a false en caso de error
+      setIsLoading(false);
     }
   };
 
