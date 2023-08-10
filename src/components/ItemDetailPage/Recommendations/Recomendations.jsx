@@ -9,6 +9,8 @@ const Recomendations = ({ id }) => {
   const [error, setError] = useState(null); // Estado para manejar errores
   const [isLoading, setIsLoading] = useState(true);
   const navegate = useNavigate();
+  let manga_url = `https://api.jikan.moe/v4/manga/${id}/recommendations`;
+  let anime_url = `https://api.jikan.moe/v4/anime/${id}/recommendations`;
 
   const carouselOptions = {
     perPage: 5,
@@ -31,31 +33,39 @@ const Recomendations = ({ id }) => {
 
   const getRecentAnimeRecommendations = async () => {
     try {
-      const res = await fetch(
-        `https://api.jikan.moe/v4/anime/${id}/recommendations`
-      );
-      const data = await res.json();
-      const firstTenElements = data.data.slice(0, 10);
-      setRecommendations(firstTenElements);
-      setIsLoading(false);
+      const res = await fetch(anime_url);
+      if (res.status === 200) {
+        const data = await res.json();
+        const firstTenElements = data.data.slice(0, 10);
+        setRecommendations(firstTenElements);
+        setIsLoading(false);
+      } else {
+        throw new Error("Response status is not 200");
+      }
     } catch (error) {
       setError("Error fetching anime recommendations");
       setIsLoading(false);
+      getRecentAnimeRecommendations();
     }
   };
 
   const getRecentMangaRecommendations = async () => {
     try {
-      const res = await fetch(
-        `https://api.jikan.moe/v4/manga/${id}/recommendations`
-      );
-      const data = await res.json();
-      const firstTenElements = data.data.slice(0, 10);
-      setRecommendations(firstTenElements);
-      setIsLoading(false);
+      const res = await fetch(manga_url);
+      if (res.status === 200) {
+        const data = await res.json();
+        const firstTenElements = data.data.slice(0, 10);
+        setRecommendations(firstTenElements);
+        setIsLoading(false);
+      } else {
+        getRecentMangaRecommendations();
+      }
     } catch (error) {
       setError("Error fetching manga recommendations");
       setIsLoading(false);
+      setTimeout(() => {
+        getRecentMangaRecommendations();
+      }, 2000);
     }
   };
 
@@ -65,11 +75,13 @@ const Recomendations = ({ id }) => {
   };
 
   useEffect(() => {
-    if (type === "anime") {
-      getRecentAnimeRecommendations();
-    } else if (type === "manga") {
-      getRecentMangaRecommendations();
-    }
+    setTimeout(() => {
+      if (type === "anime") {
+        getRecentAnimeRecommendations();
+      } else if (type === "manga") {
+        getRecentMangaRecommendations();
+      }
+    }, 1500);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, type]);
 
@@ -88,6 +100,7 @@ const Recomendations = ({ id }) => {
             <SplideSlide key={index}>
               <div className="carousel-recommendation">
                 <img
+                  title={item.entry.title}
                   src={item.entry.images.webp.large_image_url}
                   alt={item.entry.title}
                   className="recommendation-img"

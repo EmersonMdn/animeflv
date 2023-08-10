@@ -2,8 +2,11 @@ import "animate.css";
 import moment from "moment";
 import Characters from "./Characters/Characters";
 import Recomendations from "./Recommendations/Recomendations";
+import Gallery from "./Gallery/Gallery";
+import { useParams } from "react-router-dom";
 
 export const Item = ({ item }) => {
+  const { type } = useParams();
   window.scrollTo({ top: 0 });
   return (
     <div>
@@ -117,6 +120,8 @@ export const Item = ({ item }) => {
               <p className="synopsis__text">{item.background}</p>
             </div>
           )}
+
+          <Gallery id={item.mal_id} type={type} />
 
           <Characters id={item.mal_id} />
 

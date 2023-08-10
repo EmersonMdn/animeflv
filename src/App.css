@@ -23,12 +23,9 @@
   text-align: center;
 }
 
-.splide__slide img {
+.animes_container img,
+.mangas_container img {
   height: 17.6rem;
-}
-
-.carousel-item {
-  position: relative;
 }
 
 .tooltip {
@@ -282,4 +279,3 @@
     opacity: 0;
   }
 }
-

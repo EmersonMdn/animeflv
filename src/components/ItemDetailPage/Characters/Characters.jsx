@@ -27,11 +27,12 @@ const Characters = ({ id }) => {
   };
 
   useEffect(() => {
-    if (characters.length <= resultsToShow) {
-      setShowButton(false);
-    } else {
-      setShowButton(true);
-    }
+    if (characters)
+      if (characters.length <= resultsToShow) {
+        setShowButton(false);
+      } else {
+        setShowButton(true);
+      }
   }, [characters, resultsToShow]);
 
   const handleLoadMore = () => {
